@@ -1,0 +1,23 @@
+{# Upcoming Bills #}
+<section id="upcoming_bills">
+    <div class="card shadow rounded-corner p-3">
+        <ul class="list-group list-group-flush my-auto">
+            <li class="list-group-item">
+                <h2 class="card-title">Upcoming Bills</h2>
+            </li>
+            {% for bill in bill_list %}
+                <li class="list-group-item my-auto">
+                <div class="row my-auto">
+                    <div class="col-md-8">
+                        <h3>{{ bill.bill_name }}</h3>
+                        <h5 class="text-muted">Due {{ bill.bill_dueDate }}</h5>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <h3 class="text-danger">${{ bill.bill_amount }}</h3>
+                    </div>
+                </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

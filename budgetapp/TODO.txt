@@ -1,0 +1,92 @@
+Notes:
+- Changed data types from django money to decimalField
+- Profile now includes payday and budget_balance
+- Transactions have been moved to the user "testing"
+    - username: testing, password: budgetapp
+
+
+Frontend
+-----------------------------------
+- Navbar highlight icons when active
+    -- Added active class, not sure why it isn't doing anything. Tried to manually set a css style, also did not work.
+- Logo? (above h1 in both mobile and desktop)
+- Style the form transaction add
+    -- Tried manually styling the form and it ended up looking better using the widget.
+- Tidy Category Accordion on wallet page (hide category if no transactions are displayed for that category)
+- Tidy mobile version (icons are too close to words, and bills # wraps)
+
+Backend
+-----------------------------------
+- Connect front end to backend
+    - Spending progress bar
+- Graphs and reports
+- Create a new model for Bills???? (to allow adding/editing per user)
+
+
+
+
+Amanda To-Do
+-----------------------------------
+- New User initilzation (redirect to newuser.html when registered). Allow users to go to the transaction form to create new transactions and to set a payday.
+- Profile Page: view information and change payday (weekly, biweekly, etc?)
+- Add Transaction Form
+    - Connect to buttons
+    - Style and correct labels
+    - Set user_name automatically and hide input
+
+
+QUESTIONS FOR PROFESSOR
+-----------------------------------
+- Transaction form
+    - Djmoney amount requires both an numeric amount and a currency, but when we style the field it removes
+          the currency selection and won't complete the transaction.
+        - Check the Djmoney docs? Set it to USD officially instead of default USD?
+    - Date formatting (calendar option?)
+    - How do you automatically have the user selected when they fill out the form? Instead of providiing a default, we
+        need the transaction to go to the user automatically. (Then hide the option in the form). Is this just going
+        to have to be done with a form from scratch and then use value=""?
+- How to use dates?
+    - Next pay day
+    - Calculate rate by number of days remaining
+    - Update date after the day passes?
+- Is there a way to create graphs?
+
+
+
+
+
+COMPLETED
+-----------------------------------
+- Model Creation
+    - Created models for Transaction, Bills, Categories.
+- Navbar creation
+    - Hide/display using media queries for desktop/mobile
+    - Update links, views, and urls to templates
+- Template pages
+    - Created components to display across multiple pages
+    - Basic widget creation w/temporary text
+- Added dummy transactions
+    - Category icons
+- Transaction Lists
+    - Display limited number of transactions on home page
+    - Display all transactions on wallet page
+    - Pagination to all transactions on wallet page
+- Category component (accordian dropdown)
+- Authentication
+    - Added Users and Profile models + connected via signals
+    - Authorization to access pages (redirect to login)
+    - Assign transactions to user and query context to display transactions belonging to that user
+    - Login, register, and logout pages
+        - Styled forms for login/register
+- Forms
+    - Created forms for Adding Transaction
+- Style the progress bar in period_spending (add labels and thicken)
+    -- thickened the progress bar, labels added
+- Style pagination buttons
+- Style the forms for register
+- Edit/Delete Functionality
+- Edit and Delete Buttons/functionality in dropdown in All Transactions
+- Changed data types from Django MoneyField to Decimal Field
+- Confirmation Messages when actions are completed (such as CRUD functions)
+- Total Amount calculated after bills, and saved to profile
+- Daily Spending Rate Calculate based on the number of days remaining in a month

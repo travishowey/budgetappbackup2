@@ -1,0 +1,50 @@
+{# Changes to be made: title, list all (no limit), pagination?, edit/delete buttons #}
+{# Recent Transactions #}
+<section id="all_transactions">
+        <div class="card shadow rounded-corner p-3">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-8"><h2 class="card-title">All Transactions</h2></div>
+                        <div class="col-4 text-right"><a href="{% url "budget:create_transaction" %}" class="button btn bg-darkGreen text-white rounded-circle">
+                                <i class="fas fa-plus fa-2x"></i>
+                        </a></div>
+                    </div>
+                </li>
+                {% for transaction in transaction_list %}
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-1 pl-0">
+                                {% include "budget/components/category_icons.html" %}
+                            </div>
+                            <div class="col-md-7">
+                                <h3>{{ transaction.transaction_name }}</h3>
+                                <h5 class="text-muted">{{ transaction.transaction_desc }}</h5>
+                                <h6 class="text-success">{{ transaction.transaction_date }}</h6>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {% if transaction.transaction_type == 'Debit' %}
+                                    <h4 class="text-danger">- ${{ transaction.transaction_amount }}</h4>
+                                {% elif transaction.transaction_type == 'Income' %}
+                                    <h4 class="text-success">+ ${{ transaction.transaction_amount }}</h4>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                             <div class="dropdown">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis fa-3x text-secondary"></i>
+                            </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{% url 'budget:edit_transaction' transaction.id %}">Edit</a>
+                            <a class="dropdown-item" href="{% url 'budget:delete_transaction' transaction.id %}">Delete</a>
+                          </div>
+                        </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+    </section>

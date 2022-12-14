@@ -1,0 +1,31 @@
+{# Period Spending #}
+<section id="period_spending">
+    <div class="card shadow rounded-corner">
+        <div class="card-body text-center">
+            <h2 class="card-title">Available Spending</h2>
+            <h5>For the month of {{ currentMonth }}</h5>
+            <div class="d-flex justify-content-start mt-4">
+                <div>Spending</div>
+            </div>
+            {% if spendingpercent > 100 or spendingpercent < 0 %}
+            <div class="progress" style="height:30px">
+                  <div class="progress-bar bg-danger" style="width: 100%;" role="progressbar" aria-label="Spending" aria-valuenow="{{ debit_amount }}" aria-valuemin="0" aria-valuemax="{{ profile.available_balance }}"></div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="text-secondary">${{ debit_amount }} spent</div>
+                    <div class="text-secondary">None remaining!</div>
+                </div>
+            {% elif spendingpercent <= 100 %}
+                <div class="progress" style="height:30px">
+                  <div class="progress-bar bg-gradient" style="width: {{ spendingpercent }}%;" role="progressbar" aria-label="Spending" aria-valuenow="{{ debit_amount }}" aria-valuemin="0" aria-valuemax="{{ profile.available_balance }}"></div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="text-secondary">${{ debit_amount }} spent</div>
+                    <div class="text-secondary">${{ remaining_balance }} remaining</div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{#Developer note: This will take the daily spending rate (calculated below) and multiply that by the number of days in the period for the total aria-valuemax. The area-valuenow will be total of debit transactions taken place within the period. Display the difference remaining.#}

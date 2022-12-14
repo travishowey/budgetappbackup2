@@ -1,0 +1,14 @@
+{# Account Balance #}
+<section id="account_balance">
+    <div class="card shadow rounded-corner">
+        <div class="card-body text-center">
+            <h2 class="card-title">Total Account Balance</h2>
+            <h5 class="card-subtitle">Before bills: ${{ profile.before_balance }}</h5>
+            {% if profile.available_balance >= 0 %}
+                <h2 class="text-success">${{ profile.available_balance }}</h2>
+            {% elif profile.available_balance <= 0 %}
+                <h2 class="text-danger">${{ profile.available_balance }}</h2>
+            {% endif %}
+        </div>
+    </div>
+</section>

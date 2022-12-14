@@ -1,0 +1,36 @@
+{% extends 'budget/base.html' %}
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+        <h1>Add Transaction</h1>
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="white-header mb-5">
+            <h1>Add Transaction</h1>
+        </div>
+    {# Main #}
+        <div class="main">
+            <div class="card p-3">
+                <div class="card-body">
+                    <h2 class="card-title">Fill out the following:</h2>
+                      <form method="POST">
+                        {% csrf_token %}
+                          {{ form }}
+{#                        {% for field in form %}#}
+{#                            <div class="form-group">#}
+{#                                <label class="label text-capitalize">{{ field.name }}:</label>#}
+{#                                {{ field }}#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+                          <br>
+                        <button type="submit" class="btn bg-darkGreen text-white">Add Transaction</button>
+                          <a href="{% url "budget:index" %}" class="btn bg-secondary text-white">Cancel</a>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

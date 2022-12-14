@@ -1,0 +1,34 @@
+{%  extends "budget/base.html" %}
+
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+        <h1>Dashboard</h1>
+        <h5>Welcome {{ user.username }}</h5>
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="white-header mb-5">
+            <h1>Dashboard</h1>
+            <h5>Welcome {{ user.username }}</h5>
+        </div>
+    {# Main #}
+        <div class="main">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-sm-1">
+                <div class="col mb-5">{% include "budget/components/account_balance.html" %}</div>
+                <div class="col mb-5">{% include "budget/components/period_spending.html" %}</div>
+                <div class="col mb-5">{% include "budget/components/daily_spending_rate.html" %}</div>
+                <div class="col mb-5">{% include "budget/components/next_payday.html" %}</div>
+            </div>
+            <div class="row">
+                <div class="col mb-5">{% include "budget/components/upcoming_bills.html" %}</div>
+            </div>
+            <div class="row">
+                <div class="col mb-5">{% include "budget/components/transactions_recent.html" %}</div>
+            </div>
+        </div>{# End Main #}
+    </div>{# End Content Container #}
+{% endblock %}
+

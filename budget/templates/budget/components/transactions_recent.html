@@ -1,0 +1,37 @@
+{# Recent Transactions #}
+<section id="recent_transactions">
+        <div class="card shadow rounded-corner p-3">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-8"><h2 class="card-title">Recent Transactions</h2></div>
+                        <div class="col-4 text-right"><a href="{% url "budget:create_transaction" %}" class="button btn bg-darkGreen text-white rounded-circle">
+                                <i class="fas fa-plus fa-2x"></i>
+                        </a></div>
+                    </div>
+                </li>
+                {% for transaction in transaction_list %}
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-1 pl-0">
+                                {% include "budget/components/category_icons.html" %}
+                            </div>
+                            <div class="col-md-7">
+                                <h3>{{ transaction.transaction_name }}</h3>
+                                <h5 class="text-muted">{{ transaction.transaction_desc }}</h5>
+                                <h6 class="text-success">{{ transaction.transaction_date }}</h6>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {% if transaction.transaction_type == 'Debit' %}
+                                    <h4 class="text-danger">- ${{ transaction.transaction_amount }}</h4>
+                                {% elif transaction.transaction_type == 'Income' %}
+                                    <h4 class="text-success">+ ${{ transaction.transaction_amount }}</h4>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+                <a href="{% url 'budget:wallet' %}" class="list-group-item list-group-item-action list-group-item-secondary text-center">View All Transactions</a>
+            </ul>
+        </div>
+    </section>

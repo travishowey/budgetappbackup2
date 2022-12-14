@@ -1,0 +1,15 @@
+{# Daily Spending Rate #}
+<section id="daily_spending_rate">
+    <div class="card shadow rounded-corner">
+        <div class="card-body text-center">
+            <h2 class="card-title">Daily Spending Rate</h2>
+            <h5 class="card-subtitle">Daily Rate = ${{profile.available_balance}} / {{ totalDays }} days of {{ currentM }}</h5>
+            {% if spendingRate >= 0 %}
+                <h2 class="text-success">${{ spendingRate }}</h2>
+            {% elif spendingRate <= 0 %}
+                <h2 class="text-danger">$0</h2>
+            {% endif %}
+            <h5 class="card-subtitle">Per Day</h5>
+        </div>
+    </div>
+</section>

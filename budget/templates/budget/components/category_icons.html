@@ -1,0 +1,73 @@
+ <span class="fa-stack fa-2x">
+{#Backgrounds#}
+    <i class="fas fa-square fa-stack-2x text-greenMD"></i>
+{#Icons#}
+     {% if transaction.transaction_category == "General" %}
+        <i class="fas fa-dollar-sign fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Auto & Transport" %}
+        <i class="fas fa-car fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Bills & Utilities" %}
+        <i class="fas fa-tools fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Business" %}
+        <i class="fas fa-briefcase fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Education" %}
+        <i class="fas fa-university fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Entertainment" %}
+        <i class="fas fa-film fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Fees & Charges" %}
+        <i class="fas fa-money-check-alt fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Financial" %}
+        <i class="fas fa-coins fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Food & Dining" %}
+        <i class="fas fa-utensils fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Gifts & Donations" %}
+        <i class="fas fa-gift fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Groceries" %}
+        <i class="fas fa-shopping-basket fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Health & Fitness" %}
+        <i class="fas fa-heartbeat fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Income" %}
+        <i class="fas fa-money-bill-wave fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Investments" %}
+        <i class="fas fa-comment-dollar fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Kids" %}
+        <i class="fas fa-baby fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Pets" %}
+        <i class="fas fa-paw fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Shopping" %}
+        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Taxes" %}
+        <i class="fas fa-hand-holding-usd fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Transfer" %}
+        <i class="fas fa-exchange-alt fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Travel" %}
+        <i class="fas fa-map-marked-alt fa-stack-1x text-white"></i>
+     {% endif %}
+     {% if transaction.transaction_category == "Other" %}
+        <i class="fas fa-shapes fa-stack-1x text-white"></i>
+     {% endif %}
+
+
+
+
+
+    </span>

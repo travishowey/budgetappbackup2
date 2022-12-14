@@ -1,0 +1,48 @@
+{%  extends "budget/base.html" %}
+
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+        <h1>Wallet</h1>
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="white-header mb-5">
+            <h1>Wallet</h1>
+        </div>
+    {# Main #}
+        <div class="main">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-sm-1">
+                <div class="col mb-5">{% include "budget/components/account_balance.html" %}</div>
+                <div class="col mb-5">{% include "budget/components/upcoming_bills.html" %}</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col mb-5">{% include "budget/components/transactions_all.html" %}</div>
+            </div>
+
+            <ul class="pagination justify-content-center">
+                {% if transaction_list.has_previous %}
+                    <li class="page-item"> <a href="?page=1" class="px-4 page-link text-secondary">First</a> </li>
+                    <li class="page-item"><a href="?page={{ transaction_list.previous_page_number }}" class="px-4 page-link text-secondary">Previous</a></li>
+                {% endif %}
+
+                <li class="page-item"><span class="page-link text-secondary">Page: {{ transaction_list.number }} of {{ transaction_list.paginator.num_pages }}</span></li>
+
+                {% for transaction_item in transaction_list %}
+                    {{ transaction_item.name }}
+                    <br>
+                {% endfor %}
+
+                {% if transaction_list.has_next %}
+                    <li class="page-item"> <a href="?page={{ transaction_list.next_page_number }}" class="px-4 page-link text-secondary">Next</a></li>
+                    <li class="page-item"> <a href="?page={{ transaction_list.paginator.num_pages }}" class="px-4 page-link text-secondary">Last</a></li>
+                {% endif %}
+            </ul>
+
+        </div>{# End Main #}
+    </div>{# End Content Container #}
+{% endblock %}
+

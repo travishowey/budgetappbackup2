@@ -1,0 +1,48 @@
+{# All Categories #}
+<section id="categories">
+
+<h2 class="mb-2">Categories</h2>
+{% for category in category_list %}
+<div id="accordion">
+    <div class="card">
+        <div class="card-header bg-greenMD category_card" id="heading{{ category.id }}"  data-toggle="collapse" data-target="#collapse{{ category.id }}" aria-expanded="false"
+                        aria-controls="collapseOne">
+            <h5 class="mb-0">
+                <a class="btn btn-link">
+                    <h3 class="text-white">{{ category.name }}</h3>
+
+
+                </a>
+            </h5>
+        </div>
+        <div id="collapse{{ category.id }}" class="collapse " aria-labelledby="heading{{ category.id }}" data-parent="#accordion">
+            <div class="card-body">
+                {% for transaction in transaction_list %}
+                    {% if transaction.transaction_category == category.name %}
+                            <div class="row">
+                                <div class="col-md-1 pl-0">
+                                    {% include "budget/components/category_icons.html" %}
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>{{ transaction.transaction_name }}</h3>
+                                    <h5 class="text-muted">{{ transaction.transaction_desc }}</h5>
+                                    <h6 class="text-success">{{ transaction.transaction_date }}</h6>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    {% if transaction.transaction_type == 'Debit' %}
+                                        <h4 class="text-danger">- {{ transaction.transaction_amount }}</h4>
+                                    {% elif transaction.transaction_type == 'Income' %}
+                                        <h4 class="text-success">+ {{ transaction.transaction_amount }}</h4>
+                                    {% endif %}
+                                </div>
+                            </div>
+                    {% endif %}
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endfor %}
+</section>
