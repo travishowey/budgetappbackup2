@@ -1,0 +1,1 @@
+web gunicorn budgetapp.wsgi:application --log-file -
