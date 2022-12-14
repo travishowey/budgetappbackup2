@@ -1,0 +1,33 @@
+{%  extends "budget/base.html" %}
+
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+        <h1>Profile</h1>
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="white-header mb-5">
+            <h1>Profile</h1>
+        </div>
+    {# Main #}
+        <div class="main">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3>Username: {{ user.username }}</h3>
+                </li>
+                <li class="list-group-item">
+                    <h4>Email: {{ user.email }}</h4>
+                </li>
+                <li class="list-group-item">
+                    <h4>Pay Day: {{ user.profile.payday }}</h4>
+                    <a href="{% url 'update_payday' user.profile.id %}" class="btn bg-gradient text-white">Update Payday</a>
+                </li>
+            </ul>
+
+            <a href="{% url 'logout' %}" class="btn bg-gradient mt-5">Log Out</a>
+        </div>
+    </div>
+{% endblock %}

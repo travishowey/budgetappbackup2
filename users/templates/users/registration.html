@@ -1,0 +1,65 @@
+{%  extends "budget/base.html" %}
+
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+        <h1>Registration</h1>
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="white-header mb-5">
+            <h1>Registration</h1>
+        </div>
+    {# Main #}
+        <div class="main">
+        <h2>Welcome to your new budgeting application!</h2>
+        <h5>Here are a couple of tips to help you get started:</h5>
+            <br>
+            <div class="card shadow rounded-corner pl-4 mb-4">
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa-solid fa-1 fa-4x text-greenMD"></i>
+                        </div>
+                        <div class="col-11 pl-5">
+                            <h3>Update your Payday</h3>
+                            <p>To keep your organized, you have the option to add in a payday to help keep you on track until the next big check comes in. Don't forget to update it regularly!</p>
+                            <a href="{% url 'profile' %}" class="btn bg-gradient text-white">Go to Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow rounded-corner pl-4 mb-4">
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa-solid fa-2 fa-4x text-greenMD"></i>
+                        </div>
+                        <div class="col-11 pl-5">
+                            <h3>Add Transactions</h3>
+                            <p>As you add transactions into your account, your balance will automatically update. You can choose to transfer an entire amount all at once, or manually input as many transactions as you would like.</p>
+                            <a href="{% url 'budget:create_transaction' %}" class="btn bg-gradient text-white">Add Transactions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow rounded-corner pl-4 mb-4">
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa-solid fa-3 fa-4x text-greenMD"></i>
+                        </div>
+                        <div class="col-11 pl-5">
+                            <h3>View your Dashboard</h3>
+                            <p>Your dashboard is your home page for everything budgeting. Get in there and start saving!</p>
+                            <a href="{% url 'budget:index' %}" class="btn bg-gradient text-white">View Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

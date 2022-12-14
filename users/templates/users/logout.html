@@ -1,0 +1,22 @@
+{%  extends "budget/base.html" %}
+
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="mb-5">
+            <h1>You have logged out.</h1>
+            <h5>Please login or create an account to continue.</h5>
+        </div>
+    {# Main #}
+        <div class="main">
+            <a href="{% url "login" %}" style="color: #007152;">Return to login</a>
+        </div>
+
+        </div>
+    </div>
+{% endblock %}

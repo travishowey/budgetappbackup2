@@ -1,0 +1,34 @@
+{%  extends "budget/base.html" %}
+
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+        <h1>Login</h1>
+        <h5>Please login or create an account to continue.</h5>
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="white-header mb-5">
+            <h1>Login</h1>
+            <h5>Please login or create an account to continue.</h5>
+        </div>
+    {# Main #}
+        <div class="main">
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label class="label text-capitalize">{{ field.name }}:</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn bg-darkGreen text-white">Login</button>
+            </form>
+            <br>
+            <a href="{% url 'register' %}" style="color: #007152;">Create Account</a>
+        </div>
+    </div>
+
+{% endblock %}

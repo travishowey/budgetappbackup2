@@ -1,0 +1,30 @@
+{%  extends "budget/base.html" %}
+
+{% block body %}
+{# Header Mobile #}
+    <div class="head bg-gradient rounded-bottom p-4 pl-5 green-header shadow">
+        <h1>Welcome {{ user.username }}! Let's get started.</h1>
+    </div>
+    <br>
+{# Content #}
+    <div class="container mt-3 mb-5 pb-5">
+    {# Header Desktop #}
+        <div class="white-header mb-5">
+            <h1>Welcome {{ user.username }}! Let's get started.</h1>
+        </div>
+    {# Main #}
+        <div class="main">
+            <h2>Setup</h2>
+            <h5>In order to get started, fill out some of the following information.</h5>
+            <hr>
+            <h3>Balance:</h3>
+            <p>You can choose to either enter a starting balance or enter individual transactions manually. </p>
+            <a href="#" class="btn btn-secondary">Enter Starting Balance</a>
+            <a href="#" class="btn btn-secondary">Add Transactions</a>
+            <hr>
+            <h3>Next PayDay</h3>
+            <p>You will need to add your next pay day in order to see spending statistics.</p>
+            {# CONTINUE CODE HERE #}
+        </div>
+    </div>
+{% endblock %}
