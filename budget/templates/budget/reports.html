@@ -14,11 +14,6 @@
         </div>
     {# Main #}
         <div class="main">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-sm-1">
-                <div class="col mb-5">{% include "budget/components/graphics/monthly_spending_graph.html" %}</div>
-            </div>
-            <div class="row">
-                <div class="col mb-5">{% include "budget/components/graphics/category_spending_graph.html" %}</div>
-            </div>
+                {% include "budget/components/graphics/monthly_spending_table.html" %}
         </div>
     {% endblock %}
