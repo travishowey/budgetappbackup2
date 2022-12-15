@@ -1,0 +1,22 @@
+{# Monthly Spending Table #}
+<section id="monthly_table">
+<h3 class="mb-3">Spending per Category ({{ currentMonth }})</h3>
+<table class="table table-striped">
+  <thead class="bg-darkGreen text-white">
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Number of Transactions</th>
+      <th scope="col">Total $ Spent (Debit)</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for c in cat_report %}
+    <tr>
+      <th scope="row">{{ c.0 }}</th>
+      <td class="text-center">{{ c.1 }}</td>
+      <td>$ {{ c.2 }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    </section>
