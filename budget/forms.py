@@ -1,7 +1,6 @@
 from django import forms
 from .models import Transaction
 from django.forms import TextInput, NumberInput, DateInput
-from django.utils.translation import ugettext_lazy as _
 
 
 
@@ -11,13 +10,13 @@ class TransactionForm(forms.ModelForm):
         fields = ['user_name', 'transaction_name', 'transaction_desc', 'transaction_category',
                   'transaction_date', 'transaction_type', 'transaction_amount']
         labels = {
-            'transaction_name': _('Title'),
-            'transaction_desc': _('Description'),
-            'transaction_type': _('Type (debit or income)'),
-            'transaction_date': _('Date'),
-            'transaction_category': _('Category'),
-            'transaction_amount': _('Amount'),
-            'user_name': _('User'),
+            'transaction_name': ('Title'),
+            'transaction_desc': ('Description'),
+            'transaction_type': ('Type (debit or income)'),
+            'transaction_date': ('Date'),
+            'transaction_category': ('Category'),
+            'transaction_amount': ('Amount'),
+            'user_name': ('User'),
         }
 
         widgets = {
