@@ -2,8 +2,7 @@ from django import forms
 from .models import Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.utils.translation import ugettext_lazy as _
-from django.forms import TextInput, EmailInput, PasswordInput
+from django.utils.translation import ugettext_lazy as _from django.forms import TextInput, EmailInput, PasswordInput
 
 
 class RegistrationForm(UserCreationForm):
@@ -13,10 +12,10 @@ class RegistrationForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
         labels = {
-            'username': _('Username'),
-            'email': _('Email'),
-            'password1': _('Password'),
-            'password2': _('Password Confirmation'),
+            'username': ('Username'),
+            'email': ('Email'),
+            'password1': ('Password'),
+            'password2': ('Password Confirmation'),
         }
 
         # widgets = {
