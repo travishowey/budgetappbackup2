@@ -2,6 +2,8 @@ from django import forms
 from .models import Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.utils.translation import ugettext_lazy as _
+from django.forms import TextInput, EmailInput, PasswordInput
 
 
 class RegistrationForm(UserCreationForm):
