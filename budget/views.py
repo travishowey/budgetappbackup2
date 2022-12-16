@@ -141,35 +141,7 @@ def spending(request):
 
 @login_required
 def reports(request):
-    currentDate = datetime.datetime.now()
-    currentMonth = currentDate.strftime("%B")
-    transaction_list = Transaction.objects.all().values().filter(user_name=request.user.id).filter(
-        transaction_date__month=currentDate.month)
-    bill_list = Bill.objects.all().filter(user_name=request.user.id)
-    category_list = Category.objects.all()
-    profile = Profile.objects.get(user_id=request.user.id)
-    cat_report = []
-    for category in category_list:
-        trans_num = 0
-        total_spent = 0
-        cat_list = [category.name]
-        for t in transaction_list:
-            if t['transaction_category'] == category.name:
-                trans_num += 1
-                if t['transaction_type'] == "Debit":
-                    total_spent += float(t['transaction_amount'])
-                cat_list = [category.name, trans_num, total_spent]
-        cat_report.append(cat_list)
-    context = {
-        'transaction_list': transaction_list,
-        'bill_list': bill_list,
-        'category_list': category_list,
-        'profile': profile,
-        'cat_report': cat_report,
-        'currentMonth': currentMonth,
-    }
-
-    return render(request, 'budget/reports.html', context)
+    return render(request, 'budget/reports.html')
 
 
 @login_required
